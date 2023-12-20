@@ -1,5 +1,6 @@
 $(document).ready(function() {
   createQuizLayout();
+  initQuiz();
 });
 
 // Quiz Function
@@ -40,4 +41,58 @@ function createQuizLayout() {
   $('#source').html(arrCountry.join(''));
   $('#target').html(arrCapital.join(''));
 
+}
+
+
+// Initial Quiz function
+function initQuiz() {
+
+  // Draggable Code
+  $('#source li').draggable({
+    revert: true,
+    revertDuration: 200,
+    cursor: 'move'
+  });
+
+  // Droppable Code
+  let totalScore = 0;
+
+  $('#score').text(totalScore + ' points');
+
+  $('#target li').droppable({
+
+    accept: function(draggable) {
+      if (parseInt(draggable.data('index'), 10) === parseInt($(this).data('index'), 10)) {
+
+        return true;
+      } else {
+
+        return false;
+      }
+    },
+
+    drop: function(event, ui) {
+
+      let that = $(this);
+
+      that.addClass("ui-state-highlight").html('Correct!').effect('bounce');
+
+      that.droppable('disable');
+
+      ui.draggable.addClass('correct ui-state-error');
+
+      (ui.draggable).draggable('disable');
+
+      totalScore++;
+
+      $('#score').text(totalScore + ' points');
+
+      if ($('li.correct').length == 10) {
+        $('#dialog-complete').dialog({
+          resizable: false,
+          modal: true
+        });
+      }
+    }
+  })
 }
