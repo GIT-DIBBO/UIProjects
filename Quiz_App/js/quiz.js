@@ -1,6 +1,14 @@
 $(document).ready(function() {
   createQuizLayout();
   initQuiz();
+
+  // Reset Function
+  $('#reset').on('click', function() {
+    $('#source li').draggable('destroy');
+    $('#target li').droppable('destroy');
+    createQuizLayout();
+    initQuiz();
+  });
 });
 
 // Quiz Function
