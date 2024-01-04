@@ -1,0 +1,115 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+}
+
+body {
+  font-size: 12px;
+  margin: 0 auto;
+  width: 900px;
+}
+
+div.container {
+  border: 1px solid #000;
+  float: left;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+}
+
+#pieceBox {
+  border: 1px solid #000;
+  float: left;
+  height: 402px;
+  margin: 0 auto;
+  position: relative;
+  width: 402px;
+}
+
+#puzzleContainer {
+  border: 1px solid #000;
+  float: right;
+  margin: 0 auto;
+  height: 402px;
+  width: 402px;
+}
+
+div.img {
+  background-image: url("/jigsaw_puzzle/images/cat.jpg");
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  float: left;
+  border: 1px solid #000;
+}
+
+ul {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+span#message {
+  clear: both;
+  display: none;
+  font-size: 20px;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+ul.buttons {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+ul button {
+  border: 1px solid #000;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 175px;
+  display: inline-block;
+}
+
+#reset {
+  display: none;
+}
+
+.clear {
+  clear: both;
+}
+
+@media only screen and (max-width: 832px) {
+
+  body {
+    width: 350px;
+  }
+
+  div.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #pieceBox {
+    height: 202px;
+    width: 202px;
+  }
+
+  #puzzleContainer {
+    height: 202px;
+    width: 202px;
+  }
+
+  div.img {
+    height: 50px;
+    width: 50px;
+  }
+  
+}
